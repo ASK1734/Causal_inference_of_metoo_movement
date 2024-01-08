@@ -6,17 +6,21 @@ This research focuses on the MeToo movement, aiming to understand the factors in
 ## Data Collection and Expansion
 The dataset is expanded using a web scraping script (`webscratching.ipynb`), which collects information from the aforementioned website.
 
-## Challenges in Data Collection: Internet Volume Analysis (using `google_trend_data.ipynb`)
-An essential aspect of our analysis involves evaluating the internet presence or fame of predators and victims, hypothesizing that this could influence their decision to come forward. We utilized the `gtab` package to standardize Google Trends search volume data across different locations and time frames. The accuracy and functionality of `gtab` in this context should be verified.
+## Challenges in Data Collection: Internet Volume Analysis
+An essential aspect of our analysis involves evaluating the internet presence or fame of predators and victims, hypothesizing that this could influence their decision to come forward. For this purpose, we utilized the `gtab` package.
+
+### Normalization Tool:
+- **Google Trends Normalization:** Google Trends provides relative search interest data on a scale from 0 to 100. The `gtab` package is employed to normalize this data, allowing for a more accurate and comparable analysis of search terms across different regions and time periods.
+
+### Calibration Reference:
+- **Standardizing Search Data:** By comparing terms of interest to a set of anchor terms, `gtab` calibrates the Google Trends data to a more standardized scale. This step is crucial for ensuring meaningful comparisons in our analysis.
 
 ### Note on Google Trends Data Collection
-Google Trends imposes limitations on rapid data collection, which may require IP address changes to continue data retrieval. The data collection script divides the predator and victim lists into sublists for trend analysis. If a maximum retry limit is reached, an IP change is needed to process the remaining lists.
-
-A peculiar issue encountered involved inconsistent responses from Google Trends, where certain keywords initially marked as 'bad' would be accepted in a second attempt. To address this, the data collection process is executed twice: the first run encompasses all data, and the second run targets individuals marked as NA initially. The final output files are `victim_all.csv` and `predator_all.csv`.
+- **Challenges with Data Retrieval:** Google Trends limits rapid data collection, occasionally necessitating IP address changes for continued access. Our script divides predator and victim names into sublists to manage this process effectively.
+- **Handling Inconsistent Responses:** We encountered varying responses from Google Trends, with some keywords initially marked as 'bad' later being accepted. To combat this, we conducted two rounds of data collection – an initial run followed by a rerun for initially missed data. This approach ensures comprehensive data collection, culminating in `victim_all.csv` and `predator_all.csv`.
 
 ## Data Processing
-The collected data is integrated into a main Excel sheet, then transformed into a panel data format suitable for statistical analysis (using `transform_panel_data.ipynb`).
+- **Integration and Transformation:** The collected data is integrated into a primary Excel sheet and then transformed into a panel data format suitable for statistical analysis. This process is facilitated by the script `transform_panel_data.ipynb`.
 
 ## Statistical Analysis in R
-We perform fixed and random effects analysis using the `pglm` package in R. The model specification is:
-
+- **Analytical Approach:** Fixed and random effects analysis is conducted using the `pglm` package in R. This methodological choice is aimed at understanding the varied factors influencing victims' decisions to accuse their predators.
