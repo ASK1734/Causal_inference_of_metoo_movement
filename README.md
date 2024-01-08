@@ -24,4 +24,4 @@ To evaluate the internet presence or fame of predators and victims, and hypothes
 
 
 ## Statistical Analysis in R
-- **Analytical Approach:** Fixed and random effects analysis is conducted using the `pglm` package in R. This methodological choice is aimed at understanding the varied factors influencing victims' decisions to accuse their predators.
+- **Analytical Approach:** Fixed effects analysis is conducted using the `plm` package in R. This methodological choice is aimed at understanding the varied factors influencing victims' decisions to accuse their predators.
